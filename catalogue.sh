@@ -80,7 +80,7 @@ npm install &>> $logfile
 
 VALIDATE $? "Installing the dependencies"
 
-cp /c/Users/vnred/repos/scripting/shellscript roboshoshop/catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
+cp catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
 
 VALIDATE $? "copying the catalogue.service file"
 
