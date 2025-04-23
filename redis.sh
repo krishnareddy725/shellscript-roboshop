@@ -32,12 +32,17 @@ else
 
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y --skip-broken &>> $logfile
+dnf install -y https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.4-1.el8.remi.noarch.rpm
+ &>> $logfile
 
 VALIDATE $? "DOWNLOAD redis rpm file"
 
 dnf module enable redis:remi-6.2 -y &>> $logfile
 
+dnf module reset redis -y &>> $logfile
+
+dnf module enable redis:remi-6.2 -y &>> $logfile
+ 
 VALIDATE $? "enabeling redis rpm file"
 
 dnf install redis -y &>> $logfile
