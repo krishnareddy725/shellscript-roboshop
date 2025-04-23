@@ -19,7 +19,7 @@ VALIDATE( ) {
     
     else
 
-        echo -e " $G SUCCESS..!$2 .............. is success %N"
+        echo -e " $G SUCCESS..!$2 .............. is success $N"
 
     fi    
 }
