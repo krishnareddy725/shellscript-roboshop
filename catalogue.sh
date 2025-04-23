@@ -31,7 +31,7 @@ if [ $ID -ne 0 ]; then
 
 else
 
-    echo -e " %G You are a ROOT user..Please Procced $N"
+    echo -e " $G You are a ROOT user..Please Procced $N"
 
 fi
 
@@ -80,7 +80,7 @@ npm install &>> $logfile
 
 VALIDATE $? "Installing the dependencies"
 
-cp catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
+cp C:\Users\vnred\repos\scripting\shellscript roboshoshop\catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
 
 VALIDATE $? "copying the catalogue.service file"
 
