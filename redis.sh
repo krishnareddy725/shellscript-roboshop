@@ -32,7 +32,7 @@ else
 
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>> $logfile
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y --skip-broken &>> $logfile
 
 VALIDATE $? "DOWNLOAD redis rpm file"
 
