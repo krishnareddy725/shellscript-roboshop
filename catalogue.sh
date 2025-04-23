@@ -66,15 +66,15 @@ VALIDATE $? &>> $logfile
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $logfile
 
-VALIDATE $? "download the file to zip file"
-
-unzip -o /tmp/catalogue.zip &>> $logfile
-
-VALIDATE $? "unzipping the catalogue zip file"
+VALIDATE $? "download the cataloghu application"
 
 cd /app &>> $logfile
 
 VALIDATE $? "moveing to app folder"
+
+unzip -o /tmp/catalogue.zip &>> $logfile
+
+VALIDATE $? "unzipping the catalogue zip file"
 
 npm install &>> $logfile
 
