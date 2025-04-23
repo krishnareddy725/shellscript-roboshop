@@ -17,4 +17,18 @@ VALIDATE( ) {
         exit 1
     else
         echo -e "$2 .............$G Success $N"
+    fi
 }
+
+if [ ID -ne 0 ]; then
+
+    echo -e "$R ERROR: Please run this script as a root user $N"
+    exit 1
+
+else
+
+    echo -e "$G SUCCESS: You are a ROOT USER...! Please Procced $N"
+
+fi
+
+
