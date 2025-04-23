@@ -33,7 +33,7 @@ else
 fi
 
 dnf install -y https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.4-1.el8.remi.noarch.rpm
- &>> $logfile
+&>> $logfile
 
 VALIDATE $? "DOWNLOAD redis rpm file"
 
