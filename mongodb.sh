@@ -8,7 +8,7 @@ Y="\e[33m"
 N="\e[0m"
 
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-logfile=/tmp/$0-TIMESTAMP
+logfile=/tmp/$0-$TIMESTAMP
 echo "Script started executing at $TIMESTAMP" &>> $logfile
 
 VALIDATE( ) {
