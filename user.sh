@@ -36,15 +36,15 @@ else
 
 fi
 
-dnf module disable nodejs -y &>> $logfile
+dnf module disable nodejs -y &>> &>> $logfile
 
 VALIDATE $? "Disabeling old nodejs"
 
-dnf module enable nodejs:18 -y &>> $logfile
+dnf module enable nodejs:18 -y &>> &>> $logfile
 
 VALIDATE $? "Enabeling the new nodejs"
 
-dnf install nodejs -y &>> $logfile
+dnf install nodejs -y &>> &>> $logfile
 
 VALIDATE $? "Installing the nodejs"
 
@@ -52,63 +52,63 @@ id roboshop
 
 if [ $? -ne 0 ]; then
 
-    adduser roboshop &>> $logfile
+    adduser roboshop &>> &>> $logfile
     echo -e " $G roboshop user is CREATED $N"
 
 else
     
-    echo -e " $Y roboshop user ALREADY avilable in server $N" $logfile
+    echo -e " $Y roboshop user ALREADY avilable in server $N" &>> $logfile
 
 fi
 
-mkdir -p /app $logfile
+mkdir -p /app &>> &>> $logfile
 
 VALIDATE $? "Creating the application directory"
 
-curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip $logfile
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> &>> $logfile
 
 VALIDATE $? "Downloading the user data"
 
-cd /app $logfile
+cd /app &>> $logfile
 
 VALIDATE $? "moveing to the /app directory"
 
-unzip /tmp/user.zip $logfile
+unzip /tmp/user.zip &>> $logfile
 
 VALIDATE $? "unzipping the user.zip file"
 
-cd /app $logfile
+cd /app &>> $logfile
 
 VALIDATE $? "moveing to application directory"
 
-npm install $logfile
+npm install &>> $logfile
 
 VALIDATE $? "installing the dependencies for the app"
 
-cp /root/shellscript-roboshop/user.service /etc/systemd/system/user.service $logfile
+cp /root/shellscript-roboshop/user.service /etc/systemd/system/user.service &>> $logfile
 
 VALIDATE $? "copying the user.service file"
 
-systemctl daemon-reload $logfile
+systemctl daemon-reload &>> $logfile
 
 VALIDATE $? "reloading the daemon"
 
-systemctl enable user $logfile
+systemctl enable user &>> $logfile
 
 VALIDATE $? "enabeling the user"
 
-systemctl start user $logfile
+systemctl start user &>> $logfile
 
 VALIDATE $? "starting the user"
 
-cp /root/shellscript-roboshop/mongo.repo /etc/yum.repos.d/mongo.repo $logfile
+cp /root/shellscript-roboshop/mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfile
 
 VALIDATE $? "copying the mongo.repo file"
 
-dnf install mongodb-org-shell -y $logfile
+dnf install mongodb-org-shell -y &>> $logfile
 
 VALIDATE $? "installing the mongodb repo"
 
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/user.js $logfile
+mongo --host MONGODB-SERVER-IPADDRESS </app/schema/user.js &>> $logfile
 
 VALIDATE $? "Loading the Schema"
