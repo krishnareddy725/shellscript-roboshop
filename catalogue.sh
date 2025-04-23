@@ -80,7 +80,7 @@ npm install &>> $logfile
 
 VALIDATE $? "Installing the dependencies"
 
-cp C:\Users\vnred\repos\scripting\shellscript-roboshoshop\catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
+cp /root/shellscript-roboshop/catalogue.service /etc/systemd/system/catalogue.service &>> $logfile
 
 VALIDATE $? "copying the catalogue.service file"
 
@@ -96,7 +96,7 @@ systemctl start catalogue &>> $logfile
 
 VALIDATE $? "start the catalogue service"
 
-cp /c/Users/vnred/repos/scripting/shellscript-roboshoshop/mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfile
+cp /root/shellscript-roboshop/mongo.repo /etc/yum.repos.d/mongo.repo &>> $logfile
 
 VALIDATE $? "copying the mongo.repo file"
 
