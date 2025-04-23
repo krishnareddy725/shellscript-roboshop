@@ -3,8 +3,9 @@
 ID=$(id -u)
 
 Timestamp=$(date +%Y-%m-%d-%H-%M-%S)
+logfile=/tmp/$0-$Timestamp.log
 echo " Script execution time is $Timestamp "
-logfile=/tmp/$0-$Timestamp
+
 
 R="\e[31m"
 G="\e[32m"
