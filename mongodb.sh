@@ -20,7 +20,7 @@ VALIDATE( ) {
     fi
 }
 
-if [ ID -ne 0 ]; then
+if [ $ID -ne 0 ]; then
 
     echo -e "$R ERROR: Please run this script as a root user $N"
     exit 1
