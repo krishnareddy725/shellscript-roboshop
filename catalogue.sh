@@ -9,7 +9,7 @@ N="\e[0m"
 Timestamp=$(date +%Y-%m-%d-%H-%M-%S)
 logfile=/tmp/$0-$Timestamp
 
-echo " Scritpt start executing at $Timestamp &>> $logfile
+echo " Scritpt start executing at $Timestamp" &>> $logfile
 
 VALIDATE( ) {
     IF [ $? -ne 0 ]; then
@@ -104,5 +104,6 @@ dnf install mongodb-org-shell -y  &>> $logfile
 
 VALIDATE $? "installing the mongodb client"
 
-
 mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js  &>> $logfile
+
+VALIDATE $? "load the catalogue data into mongodb"
