@@ -36,15 +36,15 @@ else
 
 fi
 
-dnf module disable nodejs -y &>> &>> $logfile
+dnf module disable nodejs -y &>> $logfile
 
 VALIDATE $? "Disabeling old nodejs"
 
-dnf module enable nodejs:18 -y &>> &>> $logfile
+dnf module enable nodejs:18 -y &>> $logfile
 
 VALIDATE $? "Enabeling the new nodejs"
 
-dnf install nodejs -y &>> &>> $logfile
+dnf install nodejs -y &>> $logfile
 
 VALIDATE $? "Installing the nodejs"
 
@@ -52,7 +52,7 @@ id roboshop
 
 if [ $? -ne 0 ]; then
 
-    adduser roboshop &>> &>> $logfile
+    adduser roboshop &>> $logfile
     echo -e " $G roboshop user is CREATED $N"
 
 else
@@ -61,11 +61,11 @@ else
 
 fi
 
-mkdir -p /app &>> &>> $logfile
+mkdir -p /app &>> $logfile
 
 VALIDATE $? "Creating the application directory"
 
-curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> &>> $logfile
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> $logfile
 
 VALIDATE $? "Downloading the user data"
 
