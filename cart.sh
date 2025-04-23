@@ -31,3 +31,68 @@ else
 
 fi
 
+dnf module disable nodejs -y &>> $logfile
+
+VALIDATE $? "Disabeling old nodejs"
+
+dnf module enable nodejs:18 -y &>> $logfile
+
+VALIDATE $? "Enabeling the new nodejs"
+
+dnf install nodejs -y &>> $logfile
+
+VALIDATE $? "Installing the nodejs"
+
+id roboshop
+
+if [ $? -ne 0 ]; then
+
+    adduser roboshop &>> $logfile
+    echo -e " $G roboshop user is CREATED $N"
+
+else
+    
+    echo -e " $Y roboshop user ALREADY avilable in server $N" &>> $logfile
+
+fi
+
+mkdir -p /app &>> $logfile
+
+VALIDATE $? "Creating the application directory"
+
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>> $logfile
+
+VALIDATE $? "Downloading the cart application"
+
+cd /app &>> $logfile
+
+VALIDATE $? "going to app directory"
+
+unzip /tmp/cart.zip &>> $logfile
+
+VALIDATE $? "unzipping the application file"
+
+cd /app &>> $logfile
+
+VALIDATE $? "going to application directory"
+
+npm install &>> $logfile
+
+VALIDATE $? "Installing the Dependencies"
+
+cp /root/shellscript-roboshop/cart.service /etc/systemd/system/cart.service
+
+VALIDATE $? "copy the service file"
+
+systemctl daemon-reload
+
+VALIDATE $? "reloading the daemon"
+
+systemctl enable cart
+
+VALIDATE $? "enabeling the cart service"
+
+systemctl start cart
+
+VALIDATE $? "Starting the CART service"
+
