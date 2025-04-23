@@ -168,8 +168,6 @@ COLOURS IN LINUX
 "\e[33m" -- yellow               33 -- yellow
 "\e[0m"  -- normal                0 -- normal colour
 
-
-
 =======================================================================
 
 LOOPS:
@@ -194,6 +192,20 @@ a --> append
 sed -i "12 a i am krishna reddy" /etc/passwd.bkp --> Means after 12 line " i am krishna reddy will added perminently.
 
 sed -i '1i i am learing python' /etc/passwd.bkp --> means it will add first line before
+
+lines updated by SED
+--------------------
+sed -i 's/bin/SBIN/' passwd.bkp --> by default FIRST occurence of every line.
+
+sed -i 's/bin/SBIN/g' passwd.bkp --> Globaly it will effect means all fields in file.
+
+sed -i '1d' passwd.bkp --> it will delete the first line of the file.
+
+sed -i 's/127.0.0.0/0.0.0.0/g' /etc/mongodb.conf &>> $logfile --> This will modify the IP address 
+
+==========================================================================
+
+
 
 
 
