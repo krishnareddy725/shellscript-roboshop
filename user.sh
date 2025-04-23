@@ -52,7 +52,7 @@ id roboshop
 
 if [ $? -ne 0 ]; then
 
-    useradd roboshop &>> $logfile
+    adduser roboshop &>> $logfile
     echo -e " $G roboshop user is CREATED $N"
 
 else
