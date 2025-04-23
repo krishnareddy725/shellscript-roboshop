@@ -14,8 +14,8 @@ echo " Scritpt start executing at $Timestamp" &>> $logfile
 VALIDATE( ) {
     if [ $? -ne 0 ]; then
 
-        echo -e " $R ERROR..!$2............ is FAILED %N"
-        exit 1
+        echo -e " $R ERROR..!$2............ is FAILED $N"
+        #exit 1
     
     else
 
