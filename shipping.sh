@@ -64,7 +64,7 @@ cd /app &>> $logfile
 
 VALIDATE $? "moveing to application directory"
 
-unzip /tmp/shipping.zip &>> $logfile
+unzip -o /tmp/shipping.zip &>> $logfile
 
 VALIDATE $? "unzipping the shipping"
 
