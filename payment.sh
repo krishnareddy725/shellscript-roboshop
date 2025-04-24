@@ -65,7 +65,7 @@ cd /app &>> logfile
 
 VALIDATE $? "going to the application directory"
 
-unzip /tmp/payment.zip &>> logfile
+unzip -o /tmp/payment.zip &>> logfile
 
 VALIDATE $? "unzipping the payment related applications"
 
