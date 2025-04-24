@@ -207,6 +207,9 @@ sed -i 's/127.0.0.0/0.0.0.0/g' /etc/mongodb.conf &>> $logfile --> This will modi
 
 set -e --> This one we can used for the exit status, in program if it findis the error it will automatically exit from the program.
 
+touch -d "15 days ago" filename1.txt --> To create the 15 days ago 0ld files
+
+find . -type f -mtime +14 -name "*.txt" ==> to find the logs more than 14days
 
 
 
