@@ -12,7 +12,7 @@ N="\e[0m
 echo "Script execting time is $Timestamp"
 
 VALIDATE( ) {
-    IF [ $? -ne 0 ]; then
+    if [ $? -ne 0 ]; then
 
         echo -e " $2 .......... is $R FAILED..! $N "
         exit 1
