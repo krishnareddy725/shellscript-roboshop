@@ -13,7 +13,7 @@ if [ ! -f $file ]; then
 
 fi
 
-while IFS=":" read -r username passwd user_id group_id user-filenmae group-filename shell-path; do
+while IFS=":" read -r username passwd user_id group_id user_filenmae group_filename shell_path; do
 
     echo -e " username: $username "
     echo -e " passwd: $passwd "
