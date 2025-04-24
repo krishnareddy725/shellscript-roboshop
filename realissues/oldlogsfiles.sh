@@ -21,8 +21,7 @@ fi
 
 files_to_delete=$(find $source_directory -type f -mtime +14 -name "*.txt")
 
-while IFS=read r line
-do
+while IFS=read -r line; d0
     echo "deleting files: $line"
     rm -rf $line
 done <<< $files_to_delete
