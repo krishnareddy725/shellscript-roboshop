@@ -8,12 +8,12 @@ Y="\e[33m"
 
 if [ ! -d $source_dir ]; then
 
-    echo -e " $R source directory is $source_dir is not avilable $N"
+    echo -e " $R source directory is not avilable : $source_dir"
 
 fi
 
 files_to_delete=$(find $source_dir -type f -mtime +14 -name "*.log")
 while IFS= read -r line; do
-    echo -e " $R File going to be delete$N: $line"
+    echo -e " $R File going to be delete is $N: $line"
     rm -rf $line
 done <<< "files_to_delte"
