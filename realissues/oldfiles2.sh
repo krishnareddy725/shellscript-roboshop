@@ -7,7 +7,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-if [ !-d $SOURCE_DIR ]; then
+if [ ! -d $SOURCE_DIR ]; then
 
     echo -e "$R source directory is not avilable: $SOURCE_DIR"
 
