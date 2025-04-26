@@ -12,7 +12,7 @@ if [ ! -d "$SOURCE_DIR" ]; then
     exit 1
 fi
 
-FILES_TO_DELETE=$(find "$SOURCE_DIR" -type f -mtime +14 -name "*.tmp")
+FILES_TO_DELETE=$(find "$SOURCE_DIR" -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line; do
     echo -e "${R}Deleting file: $line${N}"
