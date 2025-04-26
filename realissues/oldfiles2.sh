@@ -17,8 +17,8 @@ FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.tmp")
 
 while IFS= read -r line; do
 
-    echo -e "$R delete file $N: $line"
-    rm -rf $line
+    echo -e "$R delete file is: $line"
+    rm -rf "$line"
 
 done <<< "$FILES_TO_DELETE"
 
