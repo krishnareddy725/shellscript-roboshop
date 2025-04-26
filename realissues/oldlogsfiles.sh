@@ -3,26 +3,16 @@
 
 #!/bin/bash
 
-Timestamp=$(date +%Y-%m-%d-%H-%M-%S)
-logfile=/tmp/$0-$Timestamp.log
-
+source_directory="/tmp"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-source_directory="/tmp"
-
-if [ ! -d $source_directory ]; then
-
-    echo -e " $R Source directory: $source_directory does not exist $N "
-
-fi
-
-files_to_delete=$(find $source_directory -type f -mtime +14 -name "*.txt")
+files_to_delete=$(find source_directry -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line; do
-    echo "deleting file: $line"
-    rm -rf -- "$line"
-done <<< "$files_to_delete"
+    echo -e " delete file: $line"
+    rm -rf $line
+done <<< files_to_delete
 
