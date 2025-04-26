@@ -1,20 +1,24 @@
 #!/bin/bash
 
-source_dir="/tmp/"
+SOURCE_DIR="/tmp/"
 
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e[0m"  # Reset color after output
+N="\e[0m"
 
-if [ ! -d "$source_dir" ]; then
-    echo -e "${R}Source directory is not available: $source_dir${N}"
-    exit 1
+if [ !-d $SOURCE_DIR ]; do
+
+    echo -e "$R source directory is not avilable: $SOURCE_DIR"
+
 fi
 
-files_to_delete=$(find "$source_dir" -type f -mtime +14 -name "*.log")
+FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.tmp")
 
 while IFS= read -r line; do
-    echo -e "${R}File going to be deleted is: ${N}$line"
-    rm -rf "$line"
-done <<< "$files_to_delete"
+
+    echo -e "$R delete file $N: $line"
+    rm -rf $line
+
+done <<< "FILES_TO_DELETE"
+
