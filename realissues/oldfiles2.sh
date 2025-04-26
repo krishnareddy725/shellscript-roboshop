@@ -6,7 +6,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 
-files_to_delete=$(find source_dir -type f -mtime +14 -type "*.log")
+files_to_delete=$(find source_dir -type f -mtime +14 -name "*.log")
 while IFS= read -r line; do
     echo -e "File going to be delete: $line"
     rm -rf $line
